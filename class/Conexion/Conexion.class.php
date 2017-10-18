@@ -1,7 +1,5 @@
 <?php
 
-require '../config/config.php';
-
 class Conexion extends MySqli
 {
 

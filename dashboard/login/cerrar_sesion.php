@@ -12,6 +12,6 @@
 
     $session->destroySession();
 
-    header('Location: login.php?message=¡Hasta pronto!&type=successMessage');
+    header('Location: login.php?message=¡Hasta pronto!&type=successMessage'); //por molestar
 
 

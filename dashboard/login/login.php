@@ -1,6 +1,7 @@
 <?php
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/blog/config/config.php';
     spl_autoload_register(function ($class){
-        include '../class/Message/'.$class.'.class.php';
+        include '../../class/Message/'.$class.'.class.php';
     });
 
     $message = isset($_GET['message']) && isset($_GET['type']) ? MesssageFactory::createMessage($_GET['type']) : false;
@@ -13,8 +14,8 @@
 <head>
     <meta charset="utf-8">
     <title>Login | Mi blog</title>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/singin/singin.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/singin/singin.css">
 </head>
 <body>
 <div class="container">

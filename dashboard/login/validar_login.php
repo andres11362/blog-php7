@@ -1,6 +1,7 @@
 <?php
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/blog/config/config.php';
     spl_autoload_register(function ($class){
-        include '../class/'.$class.'/'.$class.'.class.php';
+        include '../../class/'.$class.'/'.$class.'.class.php';
     });
 
 
@@ -18,9 +19,15 @@
 
    $login->setEmail($email);
    $login->setPassword($password);
+   $row = $login->singIn();
 
-   if($login->singIn()){
-       echo 'credenciales validas';
+   if($row){
+       $session = new Session();
+       $session->addValue('email', $row['email_dev']);
+       $session->addValue('id', $row['id_dev']);
+       $session->addValue('usuario', $row['usuario_dev']);
+       echo $session->getValue('email');
+       header('location: ../dashboard.php');
    }else{
        header('location: login.php?message=Usuario o contraseña incorrectos&type=warningMessage');
    }
